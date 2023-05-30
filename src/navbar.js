@@ -4,16 +4,16 @@ const URl='https://reqres.in/api/users?page=1';
 
 const getdata= async()=>
 {
-    const reponse=await fetch(URl);
-    const body=await reponse.json();
-    console.log(body.data);
-    return body.data;
+    const reponse=await fetch(URl);  //Fetch data from API
+    const body=await reponse.json(); // Convert API Data into json formate
+    //console.log(body.data);
+    return body.data;                //Returing Api data from the getdata fuction
 };
 
 export const Navbar=()=>
 {
-    const [data, setData]=useState([]); 
-    const onClick=async()=>
+    const [data, setData]=useState([]);  //Set the data to data variable using useState fuction
+    const onClick=async()=>              //After Clicking Button this Fuction will call and get data 
     {
         const data= await getdata();
         await getdata();
@@ -22,8 +22,8 @@ export const Navbar=()=>
     return(
         <>
         <nav className="nav_box">
-          <h1>AI-Solutions</h1>
-          <button onClick={onClick}>Get Users</button>
+          <h1>AI-Solutions</h1> 
+          <button onClick={onClick}>Get Users</button> 
         </nav>
         <div>
             <h2><i>User Deatils</i></h2>
@@ -37,7 +37,7 @@ export const Navbar=()=>
                             <th>Profile</th>
                         </tr>
                         { 
-                            data.map((user,index)=>
+                            data.map((user,index)=> 
                             {
                                 return(
                                     <tr key={index}>
